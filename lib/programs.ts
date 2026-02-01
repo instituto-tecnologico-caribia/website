@@ -77,8 +77,7 @@ export const programs: Program[] = [
     "nextCohort": "15 de marzo, 2026",
     "applicationDeadline": "28 de febrero, 2026",
     "certification": "Certificado de Inglés por Imersión"
-  }
-  ,
+  },
   {
     slug: "software-engineering",
     title: "Software Engineering",

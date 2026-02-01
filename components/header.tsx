@@ -35,18 +35,12 @@ export function Header() {
 				</div>
 
 				<nav className="hidden items-center gap-8 md:flex">
-					<Link href="/programs" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-						{translations.header.programs}
-					</Link>
-					<Link href="/how-it-works" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-						{translations.header.howItWorks}
-					</Link>
-					<Link href="/#testimonials" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-						{translations.header.successStories}
-					</Link>
-					<Link href="/admissions" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-						{translations.header.admissions}
-					</Link>
+					{Object.values(translations.header.links).map((value) => (
+						<Link key={"links-web" + value.href} href="/programs" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+							{value.name}
+						</Link>
+
+					))}					
 				</nav>
 
 				<div className="hidden items-center gap-3 md:flex">
@@ -71,8 +65,8 @@ export function Header() {
 							))}
 						</DropdownMenuContent>
 					</DropdownMenu>
-					<Link href="http://localhost:8080/login/" className="text-sm font-medium hover:text-black text-muted-foreground transition-colors hover:text-foreground">
-						{translations.header.studentLogin}
+					<Link href={translations.header.studentLogin.href} className="text-sm font-medium hover:text-black text-muted-foreground transition-colors hover:text-foreground">
+						{translations.header.studentLogin.name}
 					</Link>
 					<Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
 						{translations.header.applyNow}
@@ -95,19 +89,12 @@ export function Header() {
 			{mobileMenuOpen && (
 				<div className="border-t border-border bg-card md:hidden">
 					<nav className="flex flex-col gap-1 px-4 py-4">
-						<Link href="/programs"
-							className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground">
-							{translations.header.programs}
-						</Link>
-						<Link href="/how-it-works" className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground">
-							{translations.header.howItWorks}
-						</Link>
-						<Link href="/#testimonials" className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground">
-							{translations.header.successStories}
-						</Link>
-						<Link href="/admissions" className="rounded-lg px-3 py-2 text-sm font-medium text-muted-foreground hover:bg-muted hover:text-foreground">
-							{translations.header.admissions}
-						</Link>
+						{Object.values(translations.header.links).map((value) => (
+							<Link key={"links-mobile" + value.href} href="/programs" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+								{value.name}
+							</Link>
+
+						))}
 
 						{/* Language Selector Mobile */}
 						<div className="mt-3 border-t  border-border pt-3">
@@ -130,8 +117,8 @@ export function Header() {
 						</div>
 
 						<div className="mt-3 flex flex-col gap-2 border-t border-border pt-3">
-							<Link href="http://localhost:8080/login/" target="_blank" className="justify-start text-muted-foreground">
-								{translations.header.studentLogin}
+							<Link href={translations.header.studentLogin.href} target="_blank" className="justify-start text-muted-foreground">
+								{translations.header.studentLogin.name}
 							</Link>
 							<Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
 								{translations.header.applyNow}

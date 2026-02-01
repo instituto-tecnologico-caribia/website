@@ -1,3 +1,4 @@
+import { MOODLE_URL } from "@/constants"
 import { footer } from "./translations/footer"
 
 export type Locale = "es" | "en"
@@ -6,12 +7,13 @@ export const translations = {
   es: {
     // Header
     header: {
-      programs: "Programas",
-      howItWorks: "Como Funciona",
-      successStories: "Casos de Exito",
-      admissions: "Admisiones",
-      studentLogin: "Acceso Estudiantes",
-      applyNow: "Aplicar Ahora",
+      links: {
+        programs: { name: "Programas", href: "/programs" },
+        howItWorks: { name: "Como Funciona", href: "/how-it-works" },
+        admissions: { name: "Admisiones", href: "/admissions" },
+      },
+      studentLogin: { name: "Acceso Estudiantes", href: MOODLE_URL },
+      applyNow: "Aplica Ahora",
     },
     // Hero
     hero: {
@@ -43,7 +45,7 @@ export const translations = {
     // Programs
     programs: {
       title: "Nuestros Programas Elite",
-      description: "Curriculos disenados en colaboracion con lideres de Google, Microsoft y AWS para asegurar que aprendas exactamente lo que la industria necesita.",
+      description: "Nuestros currículos están diseñados para desarrollar arquitecturas complejas del mundo real, alineadas con las necesidades actuales de la industria.",
       viewDetails: "Ver Detalles",
       englishImmersive: "Ingles Inmersivo",
       softwareEngineering: "Ingenieria de Software",
@@ -206,13 +208,15 @@ export const translations = {
   en: {
     // Header
     header: {
-      programs: "Programs",
-      howItWorks: "How It Works",
-      successStories: "Success Stories",
-      admissions: "Admissions",
-      studentLogin: "Student Login",
+      links: {
+        programs: { name: "Programs", href: "/programs" },
+        howItWorks: { name: "How It Works", href: "/how-it-works" },
+        admissions: { name: "Admissions", href: "/admissions" },
+      },
+      studentLogin: { name: "Student Login", href: "/student-login" },
       applyNow: "Apply Now",
     },
+
     // Hero
     hero: {
       badge: "Institute of Technology Caribia",
@@ -243,7 +247,7 @@ export const translations = {
     // Programs
     programs: {
       title: "Our Elite Programs",
-      description: "Curriculums designed in collaboration with leaders from Google, Microsoft, and AWS to ensure you learn exactly what the industry needs.",
+      description: "Our curriculums are designed around real-world industry standards, focusing on building and understanding complex, production-level architectures.",
       viewDetails: "View Details",
       englishImmersive: "English Immersive",
       softwareEngineering: "Software Engineering",
@@ -401,8 +405,8 @@ export const translations = {
       contactTitle: "Still Have Questions?",
       contactDescription: "Our admissions team is here to help. Schedule a free consultation or call us directly.",
       callUs: "Call Us",
-    },
-  },
+    }
+  }
 }
 
 export function getTranslations(locale: Locale) {
