@@ -81,7 +81,7 @@ export const translations = {
     },
     // CTA Form
     cta: {
-      title: "Comienza Tu Carrera Tech",
+      title: "Comienza Tu Carrera Ahora",
       description: "Las solicitudes estan abiertas para la convocatoria de otono. Agenda una consulta gratuita con un asesor de admisiones hoy.",
       fullName: "Nombre Completo",
       workEmail: "Correo de Trabajo",
@@ -283,7 +283,7 @@ export const translations = {
     },
     // CTA Form
     cta: {
-      title: "Start Your Tech Journey",
+      title: "Start Your Journey",
       description: "Applications are now open for the Fall intake. Book a free consultation with an admissions advisor today.",
       fullName: "Full Name",
       workEmail: "Work Email",

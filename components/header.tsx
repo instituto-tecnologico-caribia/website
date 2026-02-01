@@ -36,7 +36,7 @@ export function Header() {
 
 				<nav className="hidden items-center gap-8 md:flex">
 					{Object.values(translations.header.links).map((value) => (
-						<Link key={"links-web" + value.href} href="/programs" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+						<Link key={"links-web" + value.href} href={value.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
 							{value.name}
 						</Link>
 
