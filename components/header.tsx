@@ -64,12 +64,17 @@ export const Header: React.FC<{ showApply?: boolean }> = ({ showApply = true }: 
 							))}
 						</DropdownMenuContent>
 					</DropdownMenu>
-					<Link href={translations.header.studentLogin.href} className="text-sm font-medium hover:text-black text-muted-foreground transition-colors hover:text-foreground">
+					<Link href={translations.header.studentLogin.href} target="_blank" className="text-sm font-medium hover:text-black text-muted-foreground transition-colors hover:text-foreground">
 						{translations.header.studentLogin.name}
 					</Link>
-					{showApply ? <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-						{translations.header.applyNow}
-					</Button> : null}
+					{showApply ?
+						<Link href={"/admissions/apply"}>
+							<Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+								{translations.header.applyNow}
+							</Button>
+						</Link>
+						: null
+					}
 				</div>
 
 				<button type="button" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
