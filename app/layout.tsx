@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 
 export const metadata: Metadata = {
-	title: 'Nexus Institute of Technology | Learn by Doing',
+	title: 'Caribia',
 	description: 'Redefining online education for the next generation of tech leaders. Accredited, global, and career-first programs in Software Engineering, Data Science, and more.',
 	generator: 'v0.app',
 	icons: {
@@ -38,6 +38,9 @@ export default function RootLayout({
 }>) {
 	return (
 		<html lang="es">
+			<head>
+				<title>Caribia</title>
+			</head>
 			<body className={`${inter.variable} ${playfair.variable} font-sans antialiased`}>
 				<LanguageProvider>
 					{children}

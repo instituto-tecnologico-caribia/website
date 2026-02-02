@@ -15,7 +15,7 @@ export default function Home() {
         <Hero />
         <Programs />
         <Features />
-        <Testimonials />
+        {/* <Testimonials /> */}
         <CTAForm />
       </main>
       <Footer />

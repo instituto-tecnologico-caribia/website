@@ -15,7 +15,7 @@ export const footer = {
         productManagement: "Gestion de Producto",
         scholarships: "Becas",
         studentBlog: "Blog Estudiantil",
-        copyright: "© 2026 Nexus Instituto de Tecnologia. Todos los derechos reservados.",
+        copyright: "© 2026 Institute of Technology Caribia. All rights reserved.",
         privacyPolicy: "Politica de Privacidad",
         termsOfService: "Terminos de Servicio",
         cookiePolicy: "Politica de Cookies",

@@ -65,16 +65,16 @@ export const translations = {
 			title: "Una Forma Diferente de",
 			titleHighlight: "Aprender",
 			sandbox: {
-				title: "Sandbox Practico",
-				description: "No mas ver videos por horas. Nuestro sandbox propietario te permite escribir, ejecutar y depurar codigo directamente en tu navegador con retroalimentacion de IA instantanea.",
+				title: "Plataforma",
+				description: "Más interacción, menos aprendizaje pasivo. Clases en vivo con profesores reales vía Meeting, donde cada pregunta cuenta y cada momento es parte de tu aprendizaje.",
 			},
 			collaborative: {
 				title: "Proyectos Colaborativos",
-				description: "Trabaja en equipos agiles con estudiantes de todo el mundo para construir software de grado de produccion usando Git y Slack.",
+				description: "Trabaja en equipos agiles con estudiantes de todo el mundo para construir software de grado de produccion.",
 			},
 			career: {
 				title: "Acelerador de Carrera",
-				description: "Desde el primer dia, te ayudamos a construir tu LinkedIn, portafolio y curriculum. Garantizamos invitaciones a entrevistas en las mejores empresas tecnologicas.",
+				description: "Desde el primer día, trabajamos contigo para desarrollar habilidades reales, preparándote para liderar proyectos complejos, innovar y emprender tus propios desafíos.",
 			},
 		},
 		// Testimonials
@@ -96,7 +96,7 @@ export const translations = {
 			workEmail: "Correo de Trabajo",
 			interestedProgram: "Programa de Interes",
 			selectProgram: "Selecciona un programa",
-			downloadProspectus: "Descargar Folleto y Aplicar",
+			downloadProspectus: "Aplicar",
 			terms: "Al hacer clic, aceptas nuestros",
 			termsOfService: "Terminos de Servicio",
 			and: "y",
@@ -119,6 +119,7 @@ export const translations = {
 			nextCohort: "Proxima Cohorte",
 			applicationDeadline: "Fecha Limite",
 			applyNow: "Aplicar Ahora",
+			contactUs: "Contactanos",
 			learnMore: "Mas Informacion",
 			downloadSyllabus: "Descargar Programa",
 			startApplication: "Iniciar Solicitud",
@@ -284,7 +285,7 @@ export const translations = {
 			video1Duration: "5:30",
 			video2Title: "Usando el Sandbox de Codigo",
 			video2Duration: "8:45",
-			video3Title: "Flujo de Trabajo de Proyectos en Equipo",
+			video3Title: "Flujo de Trabajo",
 			video3Duration: "12:20",
 			watchVideo: "Ver Video",
 			viewAllVideos: "Ver todos los videos",
@@ -355,16 +356,16 @@ export const translations = {
 			title: "A Different Way to",
 			titleHighlight: "Learn",
 			sandbox: {
-				title: "Hands-on Sandbox",
-				description: "No more watching videos for hours. Our proprietary sandbox lets you write, run, and debug code directly in your browser with instant AI feedback.",
+				title: "Platform",
+				description: "We focus on interaction over passive learning, offering live, interactive classes with real instructors via Meetings, so you can participate, ask questions, and learn like you would in a real classroom.",
 			},
 			collaborative: {
 				title: "Collaborative Projects",
-				description: "Work in agile squads with students from around the world to build production-grade software using Git and Slack.",
+				description: "Work in agile squads with students from around the world to build production-grade software.",
 			},
 			career: {
 				title: "Career Accelerator",
-				description: "From the first day, we help you build your LinkedIn, portfolio, and resume. We guarantee interview invites at top tech firms.",
+				description: "From day one, we work with you to build real-world skills, preparing you to lead complex projects, innovate, and pursue your own entrepreneurial ventures.",
 			},
 		},
 		// Testimonials

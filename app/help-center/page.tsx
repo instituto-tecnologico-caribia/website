@@ -104,14 +104,16 @@ export default function HelpCenterPage() {
 												<Play className="h-6 w-6 fill-primary text-primary" />
 											</div>
 										</div>
-										<div className="absolute bottom-3 right-3 flex items-center gap-1 rounded bg-foreground/80 px-2 py-1 text-xs font-medium text-white">
-											<Clock className="h-3 w-3" />
-											{video.duration}
+										<div>
+											<h1 className="w-full font-bold text-white left-3 absolute bottom-3">
+												{video.title}
+											</h1>
+											<div className="absolute bottom-3 right-3 flex items-center gap-1 rounded bg-foreground/80 px-2 py-1 text-xs font-medium text-white">
+												<Clock className="h-3 w-3" />
+												{video.duration}
+											</div>
 										</div>
 									</div>
-									<h3 className="mt-3 font-medium text-foreground group-hover:text-primary">
-										{video.title}
-									</h3>
 								</Link>
 							))}
 						</div>

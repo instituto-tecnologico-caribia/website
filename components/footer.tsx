@@ -75,9 +75,9 @@ export function Footer() {
 							{translations.footer.resources}
 						</h3>
 						<ul className="mt-4 space-y-3">
-							{footerLinks.resources.map((link) => (
+							{footerLinks.resources.map((link, key) => (
 								<li key={`resources:${link.name}`}>
-									<Link href={link.href} className="text-sm text-muted-foreground transition-colors hover:text-foreground" >
+									<Link href={link.href} target={key === 0 ? "_blank" : "_self"} className="text-sm text-muted-foreground transition-colors hover:text-foreground" >
 										{link.name}
 									</Link>
 								</li>
@@ -92,12 +92,8 @@ export function Footer() {
 						<ul className="mt-4 space-y-3">
 							<li className="flex items-center gap-2 text-sm text-muted-foreground">
 								<Mail className="h-4 w-4 text-primary" />
-								contact@caribia.edu.do
-							</li>
-							<li className="flex items-center gap-2 text-sm text-muted-foreground">
-								<Phone className="h-4 w-4 text-primary" />
-								+1 (809) 500-0123
-							</li>
+								support@caribia.edu.do
+							</li>							
 						</ul>
 					</div>
 				</div>
@@ -105,18 +101,7 @@ export function Footer() {
 				<div className="mt-12 flex flex-col items-center justify-between gap-4 border-t border-border pt-8 sm:flex-row">
 					<p className="text-xs text-muted-foreground">
 						{translations.footer.copyright}
-					</p>
-					<div className="flex gap-6">
-						<Link href="#" className="text-xs text-muted-foreground hover:text-foreground">
-							{translations.footer.privacyPolicy}
-						</Link>
-						<Link href="#" className="text-xs text-muted-foreground hover:text-foreground">
-							{translations.footer.termsOfService}
-						</Link>
-						<Link href="#" className="text-xs text-muted-foreground hover:text-foreground">
-							{translations.footer.cookiePolicy}
-						</Link>
-					</div>
+					</p>					
 				</div>
 			</div>
 		</footer>
