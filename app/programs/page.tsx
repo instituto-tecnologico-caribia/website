@@ -1,19 +1,20 @@
+'use client';
+
 import Image from "next/image"
 import Link from "next/link"
-import { ArrowRight, Clock, Award, Users, Filter } from "lucide-react"
+import { ArrowRight, Clock, Award, Users, Filter, Calendar } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
-import { programs } from "@/lib/programs"
-
-export const metadata = {
-	title: "All Programs | Nexus Institute of Technology",
-	description: "Explore our elite programs in Software Engineering, Data Science, AI, and English designed in collaboration with industry leaders.",
-}
+import { programs } from "@/lib/translations/programs"
+import { useLanguage } from "@/lib/language-context"
 
 export default function ProgramsPage() {
+	const { locale, translations } = useLanguage()
+	const allPrograms = Object.values(programs[locale])
+
 	return (
 		<>
 			<Header />
@@ -27,42 +28,35 @@ export default function ProgramsPage() {
 					<div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 						<div className="max-w-3xl">
 							<Badge variant="secondary" className="mb-6 bg-primary/20 text-primary-foreground">
-								Explore Programs
+								{translations.allPrograms.badge}
 							</Badge>
 							<h1 className="font-serif capitalize text-4xl font-bold tracking-tight text-primary-foreground sm:text-5xl lg:text-6xl">
-								Encuentra tu camino hacia la{" "}
-								<span className="gradient-text">excelencia</span>
+								{translations.allPrograms.title1}
+								<span className="gradient-text">{translations.allPrograms.title2}</span>
 							</h1>
 							<p className="mt-6 text-lg leading-relaxed text-primary-foreground/80">
-								Nuestros programas están diseñados para que aprendas habilidades prácticas y relevantes,
-								que van más allá de la teoría y te preparan para enfrentar los desafíos del mundo real.
+								{translations.allPrograms.description}
 							</p>
-							<div className="mt-8 flex flex-wrap gap-4">
-								<div className="flex items-center gap-2 text-primary-foreground/70">
-									<Users className="h-5 w-5" />
-									<span className="text-sm">15,000+ Estudiantes</span>
-								</div>
-							</div>
 						</div>
 					</div>
 				</section>
 
 				{/* Programs Grid */}
-				<section className="py-16 sm:py-24">
+				<section className="py-15 sm:py-15">
 					<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 						<div className="mb-12 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 							<div>
 								<h2 className="text-2xl font-semibold text-foreground">
-									Programas
+									{translations.allPrograms.title3}
 								</h2>
 								<p className="mt-1 text-muted-foreground">
-									{programs.length} programas disponibles
+									{allPrograms.length} {translations.allPrograms.length}
 								</p>
 							</div>
 						</div>
 
 						<div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
-							{programs.map((program) => (
+							{allPrograms.map((program) => (
 								<Link key={program.slug} href={`/programs/${program.slug}`} className="group block">
 									<Card className="h-full py-0 overflow-hidden border-border bg-card transition-all duration-300 hover:shadow-xl">
 										<div className="relative  aspect-[16/10] overflow-hidden">
@@ -90,13 +84,9 @@ export default function ProgramsPage() {
 											<p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
 												{program.description}
 											</p>
-											<div className="mt-4 flex justify-center border-t border-border pt-4">
-												{/* <div>
-													<p className="text-xs text-muted-foreground">Tuition</p>
-													<p className="font-semibold text-foreground">{program.tuition}</p>
-												</div> */}
-												<div className="flex items-center gap-1 text-sm font-medium text-primary">
-													View Details
+											<div className="mt-4 flex justify-center border-t border-border pt-4">												
+												<div className="flex items-center gap-1 font-semibold text-sm font-medium text-primary">													
+													{translations.programs.viewDetails}
 													<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
 												</div>
 											</div>
@@ -109,18 +99,19 @@ export default function ProgramsPage() {
 				</section>
 
 				{/* CTA Section */}
-				<section className="border-t border-border bg-muted/50 py-16 sm:py-20">
+				<section className="border-border bg-muted/50 py-16 sm:py-20">
 					<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 						<div className="flex flex-col items-center text-center">
 							<h2 className="font-serif text-3xl font-bold text-foreground sm:text-4xl">
-								Not sure which program is right for you?
+								{translations.cta.program.title}
 							</h2>
 							<p className="mt-4 max-w-2xl text-muted-foreground">
-								Book a free consultation with our admissions team. We will help you find the perfect program based on your goals, background, and career aspirations.
+								{translations.cta.program.description}
 							</p>
 							<div className="mt-8 flex flex-wrap justify-center gap-4">
 								<Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-									Book a Consultation
+									<Calendar className="h-5 w-5" />
+									{translations.cta.program.call}
 								</Button>
 							</div>
 						</div>

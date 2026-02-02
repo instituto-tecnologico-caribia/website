@@ -186,16 +186,14 @@ export const programs = {
         dataScience: {
             slug: "artificial-intelligence-data-science",
             title: "Artificial Intelligence & Data Science",
-            name: "Ciencia de Datos e Inteligencia Artificial",
+            name: "Ciencia de Datos & Inteligencia Artificial",
             tag: "AI/DS",
             tagColor: "bg-emerald-600",
             duration: "18 Meses",
             href: "/programs/artificial-intelligence-data-science",
             image: "/images/program-data.jpg",
-            description:
-                "Aprende a construir redes neuronales y gestionar ecosistemas de Big Data desde cero con proyectos prácticos.",
-            fullDescription:
-                "Sumérgete en el mundo de la inteligencia artificial y la ciencia de datos. Desde fundamentos de machine learning hasta arquitecturas avanzadas de deep learning, adquirirás habilidades para resolver problemas complejos e impulsar la innovación.",
+            description: "Aprende a construir redes neuronales y gestionar ecosistemas de Big Data desde cero con proyectos prácticos.",
+            fullDescription: "Sumérgete en el mundo de la inteligencia artificial y la ciencia de datos. Desde fundamentos de machine learning hasta arquitecturas avanzadas de deep learning, adquirirás habilidades para resolver problemas complejos e impulsar la innovación.",
             highlights: [
                 "Dominio de Python, TensorFlow y PyTorch",
                 "Fundamentos de machine learning y deep learning",
@@ -276,11 +274,10 @@ export const programs = {
                     image: "/images/mentor-3.jpg"
                 }
             ],
-            tuition: "$22,500",
+            tuition: "$100.00",
             nextCohort: "1 de abril, 2026",
             applicationDeadline: "15 de marzo, 2026",
-            certification:
-                "Licenciatura en Inteligencia Artificial y Ciencia de Datos"
+            certification: "Inteligencia Artificial y Ciencia de Datos"
         }
     },
 
@@ -560,10 +557,10 @@ export const programs = {
                     image: "/images/mentor-3.jpg"
                 }
             ],
-            tuition: "$22,500",
+            tuition: "$100.00",
             nextCohort: "April 1, 2026",
             applicationDeadline: "March 15, 2026",
-            certification: "BSc in Artificial Intelligence & Data Science"
+            certification: "Artificial Intelligence & Data Science"
         }
     }
 }

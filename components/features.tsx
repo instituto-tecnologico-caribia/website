@@ -68,7 +68,7 @@ export function Features() {
                 src="/images/feature-collab.jpg"
                 alt="Team collaborating on project"
                 fill
-                className="object-cover"
+                className="object-cover "
               />
             </div>
           </div>

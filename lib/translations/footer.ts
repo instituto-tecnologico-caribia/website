@@ -31,7 +31,7 @@ export const footer = {
 
         productManagement: "Product Management",
         
-        copyright: "© 2026 Nexus Institute of Technology. All rights reserved.",
+        copyright: "© 2026 Institute of Technology Caribia. All rights reserved.",
         privacyPolicy: "Privacy Policy",
         termsOfService: "Terms of Service",
         cookiePolicy: "Cookie Policy",

@@ -14,7 +14,7 @@ const languages = [
 	{ code: "en" as Locale, name: "English", flag: "EN" },
 ]
 
-export function Header() {
+export const Header: React.FC = () => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 	const { locale, setLocale, translations } = useLanguage()
 	const currentLanguage = languages.find((l) => l.code === locale) || languages[0]
@@ -39,8 +39,7 @@ export function Header() {
 						<Link key={"links-web" + value.href} href={value.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
 							{value.name}
 						</Link>
-
-					))}					
+					))}
 				</nav>
 
 				<div className="hidden items-center gap-3 md:flex">
@@ -73,11 +72,7 @@ export function Header() {
 					</Button>
 				</div>
 
-				<button
-					type="button"
-					className="md:hidden"
-					onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-				>
+				<button type="button" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
 					{mobileMenuOpen ? (
 						<X className="h-6 w-6 text-foreground" />
 					) : (
@@ -93,7 +88,6 @@ export function Header() {
 							<Link key={"links-mobile" + value.href} href="/programs" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
 								{value.name}
 							</Link>
-
 						))}
 
 						{/* Language Selector Mobile */}

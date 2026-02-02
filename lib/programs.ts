@@ -1,3 +1,4 @@
+import { programs as tPrograms } from './translations/programs'
 export interface Mentor {
   name: string
   role: string
@@ -193,5 +194,6 @@ export function getProgramBySlug(slug: string): Program | undefined {
 }
 
 export function getAllProgramSlugs(): string[] {
+  // localStorage.getItem("locale")
   return programs.map(p => p.slug)
 }
