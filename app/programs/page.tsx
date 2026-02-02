@@ -10,6 +10,7 @@ import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { programs } from "@/lib/translations/programs"
 import { useLanguage } from "@/lib/language-context"
+import { SCHEDULER_CALL_URL } from "@/constants";
 
 export default function ProgramsPage() {
 	const { locale, translations } = useLanguage()
@@ -84,8 +85,8 @@ export default function ProgramsPage() {
 											<p className="mt-2 line-clamp-2 text-sm leading-relaxed text-muted-foreground">
 												{program.description}
 											</p>
-											<div className="mt-4 flex justify-center border-t border-border pt-4">												
-												<div className="flex items-center gap-1 font-semibold text-sm font-medium text-primary">													
+											<div className="mt-4 flex justify-center border-t border-border pt-4">
+												<div className="flex items-center gap-1 font-semibold text-sm font-medium text-primary">
 													{translations.programs.viewDetails}
 													<ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
 												</div>
@@ -109,10 +110,12 @@ export default function ProgramsPage() {
 								{translations.cta.program.description}
 							</p>
 							<div className="mt-8 flex flex-wrap justify-center gap-4">
-								<Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
-									<Calendar className="h-5 w-5" />
-									{translations.cta.program.call}
-								</Button>
+								<Link href={SCHEDULER_CALL_URL} target="_blank">
+									<Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90">
+										<Calendar className="h-5 w-5" />
+										{translations.cta.program.call}
+									</Button>
+								</Link>
 							</div>
 						</div>
 					</div>

@@ -14,7 +14,7 @@ const languages = [
 	{ code: "en" as Locale, name: "English", flag: "EN" },
 ]
 
-export const Header: React.FC = () => {
+export const Header: React.FC<{ showApply?: boolean }> = ({ showApply = true }: { showApply?: boolean }) => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 	const { locale, setLocale, translations } = useLanguage()
 	const currentLanguage = languages.find((l) => l.code === locale) || languages[0]
@@ -67,9 +67,9 @@ export const Header: React.FC = () => {
 					<Link href={translations.header.studentLogin.href} className="text-sm font-medium hover:text-black text-muted-foreground transition-colors hover:text-foreground">
 						{translations.header.studentLogin.name}
 					</Link>
-					<Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+					{showApply ? <Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
 						{translations.header.applyNow}
-					</Button>
+					</Button> : null}
 				</div>
 
 				<button type="button" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>

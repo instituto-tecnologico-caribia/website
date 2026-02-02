@@ -12,6 +12,8 @@ import {
 } from "@/components/ui/select"
 import { PhoneCall } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
+import Link from "next/link"
+import { SCHEDULER_CALL_URL } from "@/constants"
 
 export function CTAForm() {
 	const { translations, locale } = useLanguage()
@@ -34,10 +36,12 @@ export function CTAForm() {
 				<p className="mx-auto mt-4 max-w-lg text-base text-primary-foreground/80">
 					{translations.cta.description}
 				</p>
-				<Button type="submit" size="lg" style={{ background: "white", color: "#d40337" }} className="gap-2 mt-3 shadow-xl hover:bg-primary/90 hover:cursor-pointer">
-					<PhoneCall className="h-5 w-5" />
-					{translations.admissions.scheduleCall}
-				</Button>				
+				<Link href={SCHEDULER_CALL_URL} target="_blank">
+					<Button type="submit" size="lg" style={{ background: "white", color: "#d40337" }} className="gap-2 mt-3 shadow-xl hover:bg-primary/90 hover:cursor-pointer">
+						<PhoneCall className="h-5 w-5" />
+						{translations.admissions.scheduleCall}
+					</Button>
+				</Link>
 			</div>
 		</section>
 	)
