@@ -55,21 +55,21 @@ export function Hero() {
 								priority
 							/>
 						</div>
-						<div className="absolute -bottom-6 -left-6 rounded-xl border border-border bg-card p-4 shadow-lg sm:p-5">
+						<div className="absolute -bottom-6 md:-left-6 left-0 rounded-xl border border-border bg-card p-4 shadow-lg sm:p-5">
 							<div className="flex items-center gap-3">
 								<div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100">
 									<TrendingUp className="h-6 w-6 text-emerald-600" />
 								</div>
 								<div>
 									<p className="text-2xl font-bold text-foreground">94%</p>
-									<p className="text-xs font-medium uppercase tracking-wide text-muted-foreground">
+									<p className="text-xs font-medium tracking-wide text-muted-foreground">
 										{translations.hero.employmentRate}
 									</p>
 									<p className="text-xs text-muted-foreground">{translations.hero.afterGraduation}</p>
 								</div>
 							</div>
 						</div>
-						<div className="absolute -right-4 -top-4 rounded-xl border border-border bg-card p-4 shadow-lg">
+						<div className="absolute md:-right-4 right-0 p-6 -top-4 rounded-xl border border-border bg-card p-4 shadow-lg">
 							<div className="flex items-center gap-3">
 								<div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
 									<Users className="h-5 w-5 text-primary" />

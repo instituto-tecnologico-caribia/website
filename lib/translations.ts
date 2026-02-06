@@ -70,11 +70,11 @@ export const translations = {
 			},
 			collaborative: {
 				title: "Proyectos Colaborativos",
-				description: "Trabaja en equipos agiles con estudiantes de todo el mundo para construir software de grado de produccion.",
+				description: "Desde que comienzas el programa, trabajarás en equipo con estudiantes de todo el mundo, aprendiendo a colaborar en proyectos reales de software.",
 			},
 			career: {
 				title: "Acelerador de Carrera",
-				description: "Desde el primer día, trabajamos contigo para desarrollar habilidades reales, preparándote para liderar proyectos complejos, innovar y emprender tus propios desafíos.",
+				description: "Te acompañamos a convertir lo que aprendes en oportunidades reales, ayudandote a descubrir tu camino profesional, fortalecer tu perfil y prepararte para enfrentar con confianza los retos del mundo laboral.",
 			},
 		},
 		// Testimonials
@@ -359,11 +359,11 @@ export const translations = {
 			},
 			collaborative: {
 				title: "Collaborative Projects",
-				description: "Work in agile squads with students from around the world to build production-grade software.",
+				description: "From day one, you’ll work in teams with students from around the world, learning how to collaborate on real-world software projects.",
 			},
 			career: {
 				title: "Career Accelerator",
-				description: "From day one, we work with you to build real-world skills, preparing you to lead complex projects, innovate, and pursue your own entrepreneurial ventures.",
+				description: "We support you in turning what you learn into real opportunities. You’ll receive guidance to discover your professional path, strengthen your profile, and confidently face the challenges of the working world.",
 			},
 		},
 		// Testimonials
