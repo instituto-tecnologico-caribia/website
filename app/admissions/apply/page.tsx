@@ -56,7 +56,7 @@ export default function AdmissionsPage() {
 											<CheckCircle2 className="h-5 w-5 text-primary" />
 										</div>
 										<div>
-											<div className="font-medium text-foreground">{locale === "es" ? "Respuesta en 48 horas" : "Response within 48 hours"}</div>
+											<div className="font-medium text-foreground">{locale === "es" ? "Respuesta en 24 horas" : "Response within 24 hours"}</div>
 											<div className="text-sm text-muted-foreground">{locale === "es" ? "Revisamos cada solicitud personalmente" : "We review every application personally"}</div>
 										</div>
 									</div>
@@ -154,12 +154,12 @@ export default function AdmissionsPage() {
 												<ArrowRight className="ml-2 h-5 w-5" />
 											</Button>
 
-											<p className="text-center text-xs text-muted-foreground">
+											{/* <p className="text-center text-xs text-muted-foreground">
 												{translations.admissions.termsAgreement}{" "}
 												<Link href="#" className="underline hover:text-foreground">{translations.admissions.termsOfService}</Link>{" "}
 												{translations.admissions.and}{" "}
 												<Link href="#" className="underline hover:text-foreground">{translations.admissions.privacyPolicy}</Link>.
-											</p>
+											</p> */}
 										</form>
 									</CardContent>
 								</Card>
