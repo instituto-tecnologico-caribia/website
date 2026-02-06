@@ -1,10 +1,12 @@
 import { MOODLE_URL } from "@/constants"
 import { footer } from "./translations/footer"
+import { howItWork } from "./translations/how-it-work"
 
 export type Locale = "es" | "en"
 
 export const translations = {
 	es: {
+		howItWork: howItWork.es,
 		// Header
 		header: {
 			links: {
@@ -25,7 +27,7 @@ export const translations = {
 			description: "Tu futuro no comienza algun dia, comienza con las decisiones que tomas hoy. Este es un lugar para aprender, crecer y desarrollar habilidades que realmente importan.",
 			explorePrograms: "Explorar Programas",
 			howItWorks: "Como Funciona",
-			joinStudents: "Unete a 15,000+ estudiantes globalmente",
+			joinStudents: "Unete a 5,000+ estudiantes globalmente",
 			rating: "4.9/5 calificacion",
 			employmentRate: "Tasa de Empleo",
 			afterGraduation: "Despues de Graduarse",
@@ -291,6 +293,7 @@ export const translations = {
 		// more
 	},
 	en: {
+		howItWork: howItWork.en,
 		// Header
 		header: {
 			links: {
@@ -312,7 +315,7 @@ export const translations = {
 			description: "Your future doesn't start someday, it starts with the decisions you make today. This is a place to learn, grow, and build skills that truly matter.",
 			explorePrograms: "Explore Our Programs",
 			howItWorks: "How It Works",
-			joinStudents: "Join 15,000+ students globally",
+			joinStudents: "Join 5,000+ students globally",
 			rating: "4.9/5 rating",
 			employmentRate: "Employment Rate",
 			afterGraduation: "After Graduation",
@@ -394,7 +397,7 @@ export const translations = {
 			program: {
 				title: "Not sure which program is right for you?",
 				call: "Schedule a Call",
-				description: "Book a free consultation with our admissions team. We will help you find the perfect program based on your goals, background, and career aspirations.",
+				description: "Book a free call with our admissions team. We will help you find the perfect program based on your goals, background, and career aspirations.",
 			}
 		},
 		// Footer
