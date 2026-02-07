@@ -90,7 +90,7 @@ export const Header: React.FC<{ showApply?: boolean }> = ({ showApply = true }: 
 				<div className="border-t border-border bg-card md:hidden">
 					<nav className="flex flex-col gap-1 px-4 py-4">
 						{Object.values(translations.header.links).map((value) => (
-							<Link key={"links-mobile" + value.href} href="/programs" className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+							<Link key={"links-mobile" + value.href} href={value.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
 								{value.name}
 							</Link>
 						))}

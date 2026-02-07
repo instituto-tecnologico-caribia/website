@@ -16,7 +16,7 @@ export default function HowItWorksPage() {
 	return (
 		<>
 			<Header />
-			<main className="min-h-screen bg-background">
+			<main className="min-h-screen lg:pt-0 pt-15 bg-background">
 				{/* Three Steps Section */}
 				<section className="pb-16 sm:pb-15 lg:py-15">
 					<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
