@@ -46,7 +46,7 @@ export function Hero() {
 						</div>
 					</div>
 					<div className="relative">
-						<div className="relative aspect-[4/3] overflow-hidden rounded-2xl shadow-2xl">
+						<div className="relative md:aspect-[4/3] aspect-[5/6] overflow-hidden rounded-2xl shadow-2xl">
 							<Image
 								src="/images/hero-students.jpg"
 								alt="Students collaborating on laptops in a modern study space"
@@ -55,7 +55,7 @@ export function Hero() {
 								priority
 							/>
 						</div>
-						<div className="absolute -bottom-6 md:-left-6 left-0 rounded-xl border border-border bg-card p-4 shadow-lg sm:p-5">
+						<div className="absolute -bottom-6 md:-left-6 -left-2 rounded-xl border border-border bg-card p-4 shadow-lg sm:p-5">
 							<div className="flex items-center gap-3">
 								<div className="flex h-12 w-12 items-center justify-center rounded-full bg-emerald-100">
 									<TrendingUp className="h-6 w-6 text-emerald-600" />
@@ -69,7 +69,7 @@ export function Hero() {
 								</div>
 							</div>
 						</div>
-						<div className="absolute md:-right-4 right-0 p-6 -top-4 rounded-xl border border-border bg-card p-4 shadow-lg">
+						<div className="absolute md:-right-4 -right-2 p-6 -top-4 rounded-xl border border-border bg-card p-4 shadow-lg">
 							<div className="flex items-center gap-3">
 								<div className="flex h-10 w-10 items-center justify-center rounded-full bg-primary/10">
 									<Users className="h-5 w-5 text-primary" />
