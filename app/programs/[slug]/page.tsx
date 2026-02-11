@@ -40,9 +40,10 @@ export default function ProgramPage() {
 			<Header showApply={false} />
 
 			{/* Hero Section */}
-			<section className="relative mb-5">
-				<div className="absolute inset-0 md:h-[550px]">
+			<section className="relative mb-5 justify-between">
+				<div className={`absolute inset-0 ${program.slug === "artificial-intelligence-data-science" ? "h-[550px]" : "h-[500px]"} md:h-[500px]`}>
 					<Image
+						style={{ width: "100%", height: "100%", background: "red" }}
 						src={program.image || "/placeholder.svg"}
 						alt={program.name}
 						fill
@@ -90,7 +91,7 @@ export default function ProgramPage() {
 			</section>
 
 			{/* Overview */}
-			<section className="pb-16 mt-20 md:mt-0">
+			<section className="pb-16 md:mt-0">
 				<div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-12 lg:grid-cols-3">
 					<div className="lg:col-span-2">
 						<h2 className="font-serif text-2xl font-bold sm:text-3xl">

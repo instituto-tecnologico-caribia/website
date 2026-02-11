@@ -570,12 +570,13 @@ export const slug = {
     es: {
         overview: "Detalles",
         subTitle: "Que Aprenderás?",
-        duration: "Duración"
-
+        duration: "Duración",
+        deadline: "Fecha límite",
     },
     en: {
         overview: "Details",
         subTitle: "What will you learn?",
-        duration: "Duration"
+        duration: "Duration",
+        deadline: "Deadline",
     }
 }
