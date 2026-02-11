@@ -7,6 +7,7 @@ import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
 import { useLanguage } from "@/lib/language-context"
 import { ArrowRight, Play, Clock, Calendar, } from "lucide-react"
+import { SCHEDULER_CALL_URL } from "@/constants"
 
 
 export default function HelpCenterPage() {
@@ -53,16 +54,16 @@ export default function HelpCenterPage() {
 
 						<div className="mt-8 flex flex-wrap gap-4 sm:justify-center">
 							<Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90" asChild>
-								<a href="#apply">
+								<Link href="/admissions/apply">
 									{translations.admissions.startApplication}
 									<ArrowRight className="ml-2 h-5 w-5" />
-								</a>
+								</Link>
 							</Button>
 							<Button size="lg" variant="outline" className="border-border bg-transparent" asChild>
-								<a href="#schedule">
+								<Link href={SCHEDULER_CALL_URL} className="hover:bg-transparent hover:opacity-90 hover:text-black" target="_blank">
 									<Calendar className="mr-2 h-5 w-5" />
 									{translations.admissions.scheduleCall}
-								</a>
+								</Link>
 							</Button>
 						</div>
 					</div>

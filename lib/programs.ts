@@ -1,4 +1,4 @@
-import { programs as tPrograms } from './translations/programs'
+import { programs as tPrograms, slug } from './translations/programs'
 export interface Mentor {
   name: string
   role: string

@@ -564,3 +564,18 @@ export const programs = {
         }
     }
 }
+
+
+export const slug = {
+    es: {
+        overview: "Detalles",
+        subTitle: "Que Aprenderás?",
+        duration: "Duración"
+
+    },
+    en: {
+        overview: "Details",
+        subTitle: "What will you learn?",
+        duration: "Duration"
+    }
+}
