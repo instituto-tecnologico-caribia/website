@@ -7,6 +7,8 @@ import { Menu, X, Globe, ChevronDown, GraduationCap } from "lucide-react"
 import { useState } from "react"
 import { useLanguage } from "@/lib/language-context"
 import type { Locale } from "@/lib/translations"
+import Image from "next/image"
+import logo from "@/public/logo.png"
 
 
 const languages = [
@@ -24,10 +26,10 @@ export const Header: React.FC<{ showApply?: boolean }> = ({ showApply = true }: 
 			<div className="mx-auto flex h-16 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
 				<div className="flex items-center gap-2">
 					<Link href="/" className="flex items-center gap-2">
-						<div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary">
-							<GraduationCap className="h-5 w-5 text-primary-foreground" />
-						</div>
-						{/* <Image className="flex h-9 w-9 items-center justify-center" style={{ objectFit: "contain" }} src={logo} alt="logo.png" /> */}
+						{/* <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary"> */}
+							{/* <GraduationCap className="h-5 w-5 text-primary-foreground" /> */}
+							<Image width={30} height={30} className="flex items-center justify-center" style={{ objectFit: "contain" }} src={logo} alt="logo.png" />
+						{/* </div> */}
 						<span className="text-lg font-semibold tracking-tight text-foreground">
 							Caribia
 						</span>
