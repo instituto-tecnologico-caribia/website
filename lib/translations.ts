@@ -301,7 +301,7 @@ export const translations = {
 				howItWorks: { name: "How It Works", href: "/how-it-works" },
 				admissions: { name: "Admissions", href: "/admissions" },
 			},
-			studentLogin: { name: "Student Login", href: "/student-login" },
+			studentLogin: { name: "Student Login", href: "http://localhost:8080/my/" },
 			applyNow: "Apply Now",
 		},
 
