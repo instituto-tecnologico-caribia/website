@@ -1,6 +1,5 @@
 "use client"
 
-import Image from "next/image"
 import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
@@ -11,10 +10,12 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { CheckCircle2, Clock, ArrowRight, GraduationCap, Heart, Sparkles, Phone, MessageCircle, Calendar, FileText, Users, Award } from "lucide-react"
+import { CheckCircle2, ArrowRight, Sparkles, MessageCircle, Calendar, FileText, Award, Check, CheckIcon } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
-import { SCHEDULER_CALL_URL } from "@/constants"
+import { MOODLE_API_TOKEN, SCHEDULER_CALL_URL } from "@/constants"
+import axios from "axios"
+import { useState } from "react"
+import { da } from "date-fns/locale"
 
 const cohorts = [
 	{ name: "Primavera 2026", nameEn: "Spring 2026", start: "15 de Marzo, 2026", startEn: "March 15, 2026", deadline: "28 de Febrero, 2026", deadlineEn: "February 28, 2026", spots: 45 },
@@ -24,6 +25,15 @@ const cohorts = [
 
 export default function AdmissionsPage() {
 	const { translations, locale } = useLanguage()
+	const [program, setProgram] = useState("");
+	const [cohort, setCohort] = useState("");
+	const [submitted, setSubmitted] = useState(false);
+
+	const programs = [
+		translations.programs.softwareEngineering,
+		translations.programs.aiDataScience,
+		translations.programs.englishImmersive,
+	]
 
 	const timeline = [
 		{ step: 1, title: translations.admissions.step1Title, description: translations.admissions.step1Description, duration: translations.admissions.step1Duration, icon: FileText },
@@ -31,6 +41,31 @@ export default function AdmissionsPage() {
 		{ step: 3, title: translations.admissions.step3Title, description: translations.admissions.step3Description, duration: translations.admissions.step3Duration, icon: MessageCircle },
 		{ step: 4, title: translations.admissions.step4Title, description: translations.admissions.step4Description, duration: translations.admissions.step4Duration, icon: Award },
 	]
+
+	const onSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
+		try {
+			e.preventDefault();
+
+			const formData = new FormData(e.currentTarget);
+			const { data } = await axios.post("/api/students", {
+				action: "create_user",
+				data: Object.assign(Object.fromEntries(formData.entries()), {
+					username: formData.get("email"),
+					description: JSON.stringify({
+						program,
+						cohort,
+						description: formData.get("description"),
+					}, null, 4)
+				})
+			})
+
+			console.log({ data });
+			setSubmitted(!!data.success);
+
+		} catch (error: any) {
+			console.log({ error });
+		}
+	};
 
 
 	return (
@@ -85,82 +120,95 @@ export default function AdmissionsPage() {
 							<div className="lg:col-span-3">
 								<Card className="border-border bg-card shadow-xl">
 									<CardContent className="p-6 sm:p-8">
-										<form className="space-y-6">
-											<div className="grid gap-6 sm:grid-cols-2">
-												<div className="space-y-2">
-													<Label htmlFor="firstName">{translations.admissions.firstName}</Label>
-													<Input id="firstName" placeholder="John" className="bg-background" />
+										{!submitted ?
+											<form onSubmit={onSubmit} className="space-y-6">
+												<div className="grid gap-6 sm:grid-cols-2">
+													<div className="space-y-2">
+														<Label htmlFor="firstName">{translations.admissions.firstName}</Label>
+														<Input id="firstName" name="firstname" placeholder="John" className="bg-background" />
+													</div>
+													<div className="space-y-2">
+														<Label htmlFor="lastName">{translations.admissions.lastName}</Label>
+														<Input id="lastname" name="lastname" placeholder="Doe" className="bg-background" />
+													</div>
 												</div>
-												<div className="space-y-2">
-													<Label htmlFor="lastName">{translations.admissions.lastName}</Label>
-													<Input id="lastName" placeholder="Doe" className="bg-background" />
+
+												<div className="grid gap-6 sm:grid-cols-2">
+													<div className="space-y-2">
+														<Label htmlFor="email">{translations.admissions.emailAddress}</Label>
+														<Input id="email" name="email" type="email" placeholder="john@example.com" className="bg-background" />
+													</div>
+													<div className="space-y-2">
+														<Label htmlFor="phone">{translations.admissions.phoneNumber}</Label>
+														<Input id="phone" name="phone" type="tel" placeholder="+1 (555) 000-0000" className="bg-background" />
+													</div>
 												</div>
+
+												<div className="grid gap-6 sm:grid-cols-2">
+													<div className="space-y-2">
+														<Label htmlFor="program">{translations.admissions.programOfInterest}</Label>
+														<Select onValueChange={setProgram}>
+															<SelectTrigger className="bg-background">
+																<SelectValue placeholder={translations.admissions.selectProgram} />
+															</SelectTrigger>
+															<SelectContent>
+																{programs.map((program) => (
+																	<SelectItem key={program} value={program}>{program}</SelectItem>
+																))}
+															</SelectContent>
+														</Select>
+													</div>
+													<div className="space-y-2">
+														<Label htmlFor="cohort">{translations.admissions.preferredStartDate}</Label>
+														<Select onValueChange={setCohort}>
+															<SelectTrigger className="bg-background">
+																<SelectValue placeholder={translations.admissions.selectCohort} />
+															</SelectTrigger>
+															<SelectContent>
+																{cohorts.map((cohort) => (
+																	<SelectItem key={cohort.name} value={cohort.name}>
+																		{locale === "es" ? cohort.name : cohort.nameEn}
+																	</SelectItem>
+																))}
+															</SelectContent>
+														</Select>
+													</div>
+												</div>
+
+												<div className="space-y-2">
+													<Label htmlFor="motivation">{translations.admissions.motivationQuestion}</Label>
+													<Textarea
+														id="motivation"
+														name="description"
+														placeholder={translations.admissions.motivationPlaceholder}
+														rows={4}
+														className="bg-background"
+													/>
+												</div>
+
+												<Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
+													{translations.admissions.submitApplication}
+													<ArrowRight className="ml-2 h-5 w-5" />
+												</Button>
+
+											</form> :
+											<div style={{ flexDirection: "column" }} className="flex items-center justify-center h-70">
+												<div className="bg-primary w-15 h-15 rounded-full flex items-center justify-center">
+													<CheckIcon className="h-8 w-8 shadow text-white" />
+												</div>
+												<h1 className="font-serif mt-2 text-center text-1xl font-bold tracking-tight text-foreground sm:text-2xl">{locale === "es" ? "Solicitud enviada" : "Application sent"}</h1>
+												<p className="w-80 mt-1 text-center">{locale === "es" ?
+													"Gracias por tu interés. Nos pondremos en contacto contigo pronto."
+													:
+													"Thanks for your interest. We will get back to you soon."}
+												</p>
+
+												<Button onClick={() => setSubmitted(!submitted)} size="lg" className="w-50 mt-5 bg-primary text-primary-foreground hover:bg-primary/90">
+													{locale === "es" ? "Enviar otra solicitud" : "Send another application"}
+												</Button>
+
 											</div>
-
-											<div className="grid gap-6 sm:grid-cols-2">
-												<div className="space-y-2">
-													<Label htmlFor="email">{translations.admissions.emailAddress}</Label>
-													<Input id="email" type="email" placeholder="john@example.com" className="bg-background" />
-												</div>
-												<div className="space-y-2">
-													<Label htmlFor="phone">{translations.admissions.phoneNumber}</Label>
-													<Input id="phone" type="tel" placeholder="+1 (555) 000-0000" className="bg-background" />
-												</div>
-											</div>
-
-											<div className="grid gap-6 sm:grid-cols-2">
-												<div className="space-y-2">
-													<Label htmlFor="program">{translations.admissions.programOfInterest}</Label>
-													<Select>
-														<SelectTrigger className="bg-background">
-															<SelectValue placeholder={translations.admissions.selectProgram} />
-														</SelectTrigger>
-														<SelectContent>
-															<SelectItem value="software">{translations.programs.softwareEngineering}</SelectItem>
-															<SelectItem value="data">{translations.programs.aiDataScience}</SelectItem>
-															<SelectItem value="english">{translations.programs.englishImmersive}</SelectItem>
-														</SelectContent>
-													</Select>
-												</div>
-												<div className="space-y-2">
-													<Label htmlFor="cohort">{translations.admissions.preferredStartDate}</Label>
-													<Select>
-														<SelectTrigger className="bg-background">
-															<SelectValue placeholder={translations.admissions.selectCohort} />
-														</SelectTrigger>
-														<SelectContent>
-															{cohorts.map((cohort) => (
-																<SelectItem key={cohort.name} value={cohort.name}>
-																	{locale === "es" ? cohort.name : cohort.nameEn}
-																</SelectItem>
-															))}
-														</SelectContent>
-													</Select>
-												</div>
-											</div>
-
-											<div className="space-y-2">
-												<Label htmlFor="motivation">{translations.admissions.motivationQuestion}</Label>
-												<Textarea
-													id="motivation"
-													placeholder={translations.admissions.motivationPlaceholder}
-													rows={4}
-													className="bg-background"
-												/>
-											</div>
-
-											<Button type="submit" size="lg" className="w-full bg-primary text-primary-foreground hover:bg-primary/90">
-												{translations.admissions.submitApplication}
-												<ArrowRight className="ml-2 h-5 w-5" />
-											</Button>
-
-											{/* <p className="text-center text-xs text-muted-foreground">
-												{translations.admissions.termsAgreement}{" "}
-												<Link href="#" className="underline hover:text-foreground">{translations.admissions.termsOfService}</Link>{" "}
-												{translations.admissions.and}{" "}
-												<Link href="#" className="underline hover:text-foreground">{translations.admissions.privacyPolicy}</Link>.
-											</p> */}
-										</form>
+										}
 									</CardContent>
 								</Card>
 							</div>

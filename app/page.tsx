@@ -4,6 +4,7 @@ import { Programs } from "@/components/programs"
 import { Features } from "@/components/features"
 import { CTAForm } from "@/components/cta-form"
 import { Footer } from "@/components/footer"
+import axios from "axios"
 
 export default function Home() {
   return (
