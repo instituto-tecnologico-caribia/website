@@ -28,7 +28,7 @@ export const Header: React.FC<{ showApply?: boolean }> = ({ showApply = true }: 
 					<Link href="/" className="flex items-center gap-2">
 						{/* <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary"> */}
 							{/* <GraduationCap className="h-5 w-5 text-primary-foreground" /> */}
-							<Image width={30} height={30} className="flex items-center justify-center" style={{ objectFit: "contain" }} src={logo} alt="logo.png" />
+							<Image width={30} height={30} className="flex items-center justify-center rounded-sm"  src={logo} alt="logo.png" />
 						{/* </div> */}
 						<span className="text-lg font-semibold tracking-tight text-foreground">
 							Caribia
