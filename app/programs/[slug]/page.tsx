@@ -4,7 +4,7 @@ import { useEffect } from "react"
 import { useRouter, useParams } from "next/navigation"
 import Image from "next/image"
 import Link from "next/link"
-import { Clock, Award, CheckCircle2, PhoneCall, ChevronRight, ArrowRight, GraduationCapIcon, } from "lucide-react"
+import { Clock, Award, CheckCircle2, PhoneCall, ArrowRight, GraduationCapIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
@@ -125,10 +125,10 @@ export default function ProgramPage() {
 								<span>{program.duration}</span>
 							</div>
 
-							{/* <div className="flex justify-between">
+							<div className="flex justify-between">
 								<span>Precio</span>
 								<span>{program.tuition} mensual</span>
-							</div> */}
+							</div>
 
 							<div className="flex items-center gap-2">
 								<GraduationCapIcon />
