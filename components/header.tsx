@@ -16,7 +16,7 @@ const languages = [
 	{ code: "en" as Locale, name: "English", flag: "EN" },
 ]
 
-export const Header: React.FC<{ showApply?: boolean }> = ({ showApply = true }: { showApply?: boolean }) => {
+export const Header: React.FC<{ showApply?: boolean, recovery?: boolean }> = ({ showApply = true, recovery = false }: { showApply?: boolean, recovery?: boolean }) => {
 	const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
 	const { locale, setLocale, translations } = useLanguage()
 	const currentLanguage = languages.find((l) => l.code === locale) || languages[0]
@@ -27,65 +27,67 @@ export const Header: React.FC<{ showApply?: boolean }> = ({ showApply = true }: 
 				<div className="flex items-center gap-2">
 					<Link href="/" className="flex items-center gap-2">
 						{/* <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-primary"> */}
-							{/* <GraduationCap className="h-5 w-5 text-primary-foreground" /> */}
-							<Image width={30} height={30} className="flex items-center justify-center rounded-sm"  src={logo} alt="logo.png" />
+						{/* <GraduationCap className="h-5 w-5 text-primary-foreground" /> */}
+						<Image width={30} height={30} className="flex items-center justify-center rounded-sm" src={logo} alt="logo.png" />
 						{/* </div> */}
 						<span className="text-lg font-semibold tracking-tight text-foreground">
 							Caribia
 						</span>
 					</Link>
 				</div>
-
-				<nav className="hidden items-center gap-8 md:flex">
-					{Object.values(translations.header.links).map((value) => (
-						<Link key={"links-web" + value.href} href={value.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
-							{value.name}
-						</Link>
-					))}
-				</nav>
-
-				<div className="hidden items-center gap-3 md:flex">
-					<DropdownMenu>
-						<DropdownMenuTrigger asChild>
-							<Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground hover:cursor-pointer">
-								<Globe className="h-4 w-4" />
-								<span>{currentLanguage.flag}</span>
-								<ChevronDown className="h-3 w-3" />
-							</Button>
-						</DropdownMenuTrigger>
-						<DropdownMenuContent align="end">
-							{languages.map((lang) => (
-								<DropdownMenuItem
-									key={lang.code}
-									onClick={() => setLocale(lang.code)}
-									className={locale === lang.code ? "bg-muted" : ""}
-								>
-									<span className="mr-2 font-medium">{lang.flag}</span>
-									{lang.name}
-								</DropdownMenuItem>
+				{recovery ? null :
+					<>
+						<nav className="hidden items-center gap-8 md:flex">
+							{Object.values(translations.header.links).map((value) => (
+								<Link key={"links-web" + value.href} href={value.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+									{value.name}
+								</Link>
 							))}
-						</DropdownMenuContent>
-					</DropdownMenu>
-					<Link href={translations.header.studentLogin.href} target="_blank" className="text-sm font-medium hover:text-black text-muted-foreground transition-colors hover:text-foreground">
-						{translations.header.studentLogin.name}
-					</Link>
-					{showApply ?
-						<Link href={"/admissions/apply"}>
-							<Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
-								{translations.header.applyNow}
-							</Button>
-						</Link>
-						: null
-					}
-				</div>
+						</nav>
 
-				<button type="button" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
-					{mobileMenuOpen ? (
-						<X className="h-6 w-6 text-foreground" />
-					) : (
-						<Menu className="h-6 w-6 text-foreground" />
-					)}
-				</button>
+						<div className="hidden items-center gap-3 md:flex">
+							<DropdownMenu>
+								<DropdownMenuTrigger asChild>
+									<Button variant="ghost" size="sm" className="gap-1.5 text-muted-foreground hover:cursor-pointer">
+										<Globe className="h-4 w-4" />
+										<span>{currentLanguage.flag}</span>
+										<ChevronDown className="h-3 w-3" />
+									</Button>
+								</DropdownMenuTrigger>
+								<DropdownMenuContent align="end">
+									{languages.map((lang) => (
+										<DropdownMenuItem
+											key={lang.code}
+											onClick={() => setLocale(lang.code)}
+											className={locale === lang.code ? "bg-muted" : ""}
+										>
+											<span className="mr-2 font-medium">{lang.flag}</span>
+											{lang.name}
+										</DropdownMenuItem>
+									))}
+								</DropdownMenuContent>
+							</DropdownMenu>
+							<Link href={translations.header.studentLogin.href} target="_blank" className="text-sm font-medium hover:text-black text-muted-foreground transition-colors hover:text-foreground">
+								{translations.header.studentLogin.name}
+							</Link>
+							{showApply ?
+								<Link href={"/admissions/apply"}>
+									<Button size="sm" className="bg-primary text-primary-foreground hover:bg-primary/90">
+										{translations.header.applyNow}
+									</Button>
+								</Link>
+								: null
+							}
+						</div>
+
+						<button type="button" className="md:hidden" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
+							{mobileMenuOpen ? (
+								<X className="h-6 w-6 text-foreground" />
+							) : (
+								<Menu className="h-6 w-6 text-foreground" />
+							)}
+						</button>
+					</>}
 			</div>
 
 			{mobileMenuOpen && (
