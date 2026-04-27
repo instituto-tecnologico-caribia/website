@@ -1,4 +1,4 @@
-export const MOODLE_URL = "https://student.caribia.edu.do/my/"
+export const MOODLE_URL = "https://student.caribia.edu.do"
 export const MOODLE_API_TOKEN = process.env.MOODLE_API_TOKEN || ""
 export const MOODLE_SERVERS_URL = "https://student.caribia.edu.do/local/caribia/main.php"
 
