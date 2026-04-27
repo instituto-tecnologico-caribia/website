@@ -26,7 +26,7 @@ const cohorts = [
 export default function AdmissionsPage() {
 	const { translations, locale } = useLanguage()
 	const [program, setProgram] = useState("");
-	const [cohort, setCohort] = useState("");
+	const [cohort, setCohort] = useState("now");
 	const [submitted, setSubmitted] = useState(false);
 
 	const programs = [
@@ -158,7 +158,7 @@ export default function AdmissionsPage() {
 															</SelectContent>
 														</Select>
 													</div>
-													<div className="space-y-2">
+													{/* <div className="space-y-2">
 														<Label htmlFor="cohort">{translations.admissions.preferredStartDate}</Label>
 														<Select onValueChange={setCohort}>
 															<SelectTrigger className="bg-background">
@@ -172,7 +172,7 @@ export default function AdmissionsPage() {
 																))}
 															</SelectContent>
 														</Select>
-													</div>
+													</div> */}
 												</div>
 
 												<div className="space-y-2">
