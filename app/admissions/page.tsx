@@ -5,21 +5,15 @@ import Link from "next/link"
 import { Header } from "@/components/header"
 import { Footer } from "@/components/footer"
 import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
-import { Textarea } from "@/components/ui/textarea"
 import { Badge } from "@/components/ui/badge"
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion"
-import { CheckCircle2, Clock, ArrowRight, GraduationCap, Heart, Sparkles, Phone, MessageCircle, Calendar, FileText, Users, Award } from "lucide-react"
+import {  ArrowRight,  Calendar, Users, Award } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
 import { SCHEDULER_CALL_URL } from "@/constants"
 
 const cohorts = [
-	{ name: "Primavera 2026", nameEn: "Spring 2026", start: "15 de Marzo, 2026", startEn: "March 15, 2026", deadline: "28 de Febrero, 2026", deadlineEn: "February 28, 2026", spots: 45 },
-	{ name: "Verano 2026", nameEn: "Summer 2026", start: "1 de Junio, 2026", startEn: "June 1, 2026", deadline: "15 de Mayo, 2026", deadlineEn: "May 15, 2026", spots: 60 },
-	{ name: "Otono 2026", nameEn: "Fall 2026", start: "1 de Septiembre, 2026", startEn: "September 1, 2026", deadline: "15 de Agosto, 2026", deadlineEn: "August 15, 2026", spots: 60 },
+	// { name: "Primavera 2026", nameEn: "Spring 2026", start: "15 de Marzo, 2026", startEn: "March 15, 2026", deadline: "28 de Febrero, 2026", deadlineEn: "February 28, 2026", spots: 45 },
+	{ name: "Verano 2026", nameEn: "Summer 2026", start: "1 de Junio, 2026", startEn: "June 1, 2026", deadline: "15 de Mayo, 2026", deadlineEn: "May 15, 2026", spots: 45 },
+	{ name: "Otono 2026", nameEn: "Fall 2026", start: "1 de Septiembre, 2026", startEn: "September 1, 2026", deadline: "15 de Agosto, 2026", deadlineEn: "August 15, 2026", spots: 95 },
 ]
 
 export default function AdmissionsPage() {
@@ -101,12 +95,12 @@ export default function AdmissionsPage() {
 								<h3 className="font-semibold text-foreground">{translations.admissions.upcomingCohorts}</h3>
 								<Badge variant="secondary" className="bg-primary/10 text-primary">{locale === "es" ? "Inscripciones Abiertas" : "Applications Open"}</Badge>
 							</div>
-							<div className="space-y-3">
-								{cohorts.slice(0, 2).map((cohort) => (
-									<div key={cohort.name} className="flex items-center justify-between rounded-lg bg-muted/50 px-4 py-3">
+							<div className="space-y-5">
+								{cohorts.map((cohort) => (
+									<div key={cohort.name} className="flex items-center justify-between rounded-lg bg-muted/100 px-4 py-5">
 										<div>
 											<div className="font-medium text-foreground">{locale === "es" ? cohort.name : cohort.nameEn}</div>
-											<div className="text-xs text-muted-foreground">{translations.admissions.starts} {locale === "es" ? cohort.start : cohort.startEn}</div>
+											{/* <div className="text-xs text-muted-foreground">{translations.admissions.starts} {locale === "es" ? cohort.start : cohort.startEn}</div> */}
 										</div>
 										<div className="text-right">
 											<div className="text-sm font-semibold text-primary">{cohort.spots} {translations.admissions.spots}</div>
