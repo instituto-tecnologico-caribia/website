@@ -6,19 +6,18 @@ export const footer = {
     es: {
         ...programs.es,
         ...resources.es,
-        tagline: "Redefiniendo la educacion en linea para la proxima generacion de lideres tecnologicos.",
+        tagline: "Redefiniendo la educación en línea para la próxima generación de líderes tecnológicos.",
         programs: "Programas",
         resources: "Recursos",
         contact: "Contacto",
 
-
-        productManagement: "Gestion de Producto",
+        productManagement: "Gestión de Producto",
         scholarships: "Becas",
         studentBlog: "Blog Estudiantil",
         copyright: "© 2026 Institute of Technology Caribia. All rights reserved.",
-        privacyPolicy: "Politica de Privacidad",
-        termsOfService: "Terminos de Servicio",
-        cookiePolicy: "Politica de Cookies",
+        privacyPolicy: "Política de Privacidad",
+        termsOfService: "Términos de Servicio",
+        cookiePolicy: "Política de Cookies",
     },
     en: {
         ...programs.en,
@@ -27,10 +26,10 @@ export const footer = {
         tagline: "Redefining online education for the next generation of tech leaders.",
         programs: "Programs",
         resources: "Resources",
-        contact: "Contact",        
+        contact: "Contact",
 
         productManagement: "Product Management",
-        
+
         copyright: "© 2026 Institute of Technology Caribia.",
         privacyPolicy: "Privacy Policy",
         termsOfService: "Terms of Service",

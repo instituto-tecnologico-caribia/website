@@ -13,7 +13,7 @@ export const programs = {
             description:
                 "Desarrolla habilidades reales de comunicación en inglés a través de práctica inmersiva, instrucción guiada y constante interacción.",
             fullDescription:
-                "Nuestro programa English Immersive está diseñado para estudiantes internacionales que desean alcanzar fluidez en inglés mientras se preparan para el éxito académico y profesional. A través de práctica diaria de conversación, talleres de escritura y actividades de inmersión cultural, desarrollarás la confianza y las habilidades necesarias para comunicarte efectivamente en cualquier entorno de habla inglesa.",
+                "Nuestro programa de Inglés por Inmersión está diseñado para estudiantes internacionales que desean alcanzar fluidez en inglés mientras se preparan para el éxito académico y profesional. A través de práctica diaria de conversación, talleres de escritura y actividades de inmersión cultural, desarrollarás la confianza y las habilidades necesarias para comunicarte efectivamente en cualquier entorno de habla inglesa.",
             highlights: [
                 "Práctica diaria de conversación en vivo con hablantes nativos",
                 "Retroalimentación personalizada en pronunciación y gramática",
@@ -569,9 +569,9 @@ export const programs = {
 export const slug = {
     es: {
         overview: "Detalles",
-        subTitle: "Que Aprenderás?",
+        subTitle: "¿Qué Aprenderás?",
         duration: "Duración",
-        deadline: "Fecha límite",
+        deadline: "Fecha límite",
     },
     en: {
         overview: "Details",
