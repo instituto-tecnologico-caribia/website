@@ -78,7 +78,7 @@ export const programs = {
                     image: "/images/mentor-2.jpg"
                 }
             ],
-            tuition: "$80.00",
+            tuition: "$50.00",
             nextCohort: "15 de marzo, 2026",
             applicationDeadline: "28 de febrero, 2026",
             certification: "Certificado de Inglés por Inmersión"
