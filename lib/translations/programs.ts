@@ -78,7 +78,7 @@ export const programs = {
                     image: "/images/mentor-2.jpg"
                 }
             ],
-            tuition: "$50.00",
+            tuition: "$65.00",
             nextCohort: "15 de marzo, 2026",
             applicationDeadline: "28 de febrero, 2026",
             certification: "Certificado de Inglés por Inmersión"
@@ -177,7 +177,7 @@ export const programs = {
                     image: "/images/mentor-3.jpg"
                 }
             ],
-            tuition: "$80.00",
+            tuition: "$65.00",
             nextCohort: "1 de abril, 2026",
             applicationDeadline: "15 de marzo, 2026",
             certification: "Diploma en Ingeniería de Software"
@@ -274,7 +274,7 @@ export const programs = {
                     image: "/images/mentor-3.jpg"
                 }
             ],
-            tuition: "$80.00",
+            tuition: "$65.00",
             nextCohort: "1 de abril, 2026",
             applicationDeadline: "15 de marzo, 2026",
             certification: "Inteligencia Artificial y Ciencia de Datos"
@@ -359,7 +359,7 @@ export const programs = {
                     image: "/images/mentor-2.jpg"
                 }
             ],
-            tuition: "$50.00",
+            tuition: "$65.00",
             nextCohort: "March 15, 2026",
             applicationDeadline: "February 28, 2026",
             certification: "English Immersion Certificate"
@@ -458,7 +458,7 @@ export const programs = {
                     image: "/images/mentor-3.jpg"
                 }
             ],
-            tuition: "$80.00",
+            tuition: "$65.00",
             nextCohort: "April 1, 2026",
             applicationDeadline: "March 15, 2026",
             certification: "Software Engineering Diploma"
@@ -557,7 +557,7 @@ export const programs = {
                     image: "/images/mentor-3.jpg"
                 }
             ],
-            tuition: "$80.00",
+            tuition: "$65.00",
             nextCohort: "April 1, 2026",
             applicationDeadline: "March 15, 2026",
             certification: "Artificial Intelligence & Data Science"

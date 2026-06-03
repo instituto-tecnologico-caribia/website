@@ -39,7 +39,7 @@ export const Header: React.FC<{ showApply?: boolean, recovery?: boolean }> = ({ 
 					<>
 						<nav className="hidden items-center gap-8 md:flex">
 							{Object.values(translations.header.links).map((value) => (
-								<Link key={"links-web" + value.href} href={value.href} className="text-sm font-medium text-muted-foreground transition-colors hover:text-foreground">
+								<Link key={"links-web" + value.href} href={value.href} className="text-sm capitalize font-medium text-muted-foreground transition-colors hover:text-foreground">
 									{value.name}
 								</Link>
 							))}
