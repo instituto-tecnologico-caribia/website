@@ -12,22 +12,18 @@ import { Badge } from "@/components/ui/badge"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { CheckCircle2, ArrowRight, Sparkles, MessageCircle, Calendar, FileText, Award, Check, CheckIcon } from "lucide-react"
 import { useLanguage } from "@/lib/language-context"
-import { MOODLE_API_TOKEN, SCHEDULER_CALL_URL } from "@/constants"
+import { SCHEDULER_CALL_URL } from "@/constants"
 import axios from "axios"
 import { useState } from "react"
 import { da } from "date-fns/locale"
 
-const cohorts = [
-	{ name: "Primavera 2026", nameEn: "Spring 2026", start: "15 de Marzo, 2026", startEn: "March 15, 2026", deadline: "28 de Febrero, 2026", deadlineEn: "February 28, 2026", spots: 45 },
-	{ name: "Verano 2026", nameEn: "Summer 2026", start: "1 de Junio, 2026", startEn: "June 1, 2026", deadline: "15 de Mayo, 2026", deadlineEn: "May 15, 2026", spots: 60 },
-	{ name: "Otono 2026", nameEn: "Fall 2026", start: "1 de Septiembre, 2026", startEn: "September 1, 2026", deadline: "15 de Agosto, 2026", deadlineEn: "August 15, 2026", spots: 60 },
-]
 
 export default function AdmissionsPage() {
 	const { translations, locale } = useLanguage()
 	const [program, setProgram] = useState("");
 	const [cohort, setCohort] = useState("now");
 	const [submitted, setSubmitted] = useState(false);
+	const [phone, setPhone] = useState("");
 
 	const programs = [
 		translations.programs.softwareEngineering,
@@ -62,11 +58,29 @@ export default function AdmissionsPage() {
 			console.log({ data });
 			setSubmitted(!!data.success);
 
+			if (data.success) {
+				const form = document.querySelector("form") as HTMLFormElement
+				form.reset()
+			}
+
 		} catch (error: any) {
 			console.log({ error });
 		}
 	};
 
+	function formatPhoneNumber(phoneNumberString: string) {
+		// Filter out any character that is not a digit
+		const cleaned = ('' + phoneNumberString).replace(/\D/g, '');
+
+		// Match the character groups
+		const match = cleaned.match(/^(\d{3})(\d{3})(\d{4})$/);
+
+		if (match) {
+			return `(${match[1]}) ${match[2]}-${match[3]}`;
+		}
+
+		return phoneNumberString;
+	}
 
 	return (
 		<>
@@ -140,7 +154,7 @@ export default function AdmissionsPage() {
 													</div>
 													<div className="space-y-2">
 														<Label htmlFor="phone">{translations.admissions.phoneNumber}</Label>
-														<Input id="phone" name="phone" type="tel" placeholder="+1 (555) 000-0000" className="bg-background" />
+														<Input value={formatPhoneNumber(phone)} onChange={(e) => setPhone(e.target.value)}  id="phone" name="phone" type="tel" placeholder="(000) 000-0000" className="bg-background" />
 													</div>
 												</div>
 
@@ -158,21 +172,7 @@ export default function AdmissionsPage() {
 															</SelectContent>
 														</Select>
 													</div>
-													{/* <div className="space-y-2">
-														<Label htmlFor="cohort">{translations.admissions.preferredStartDate}</Label>
-														<Select onValueChange={setCohort}>
-															<SelectTrigger className="bg-background">
-																<SelectValue placeholder={translations.admissions.selectCohort} />
-															</SelectTrigger>
-															<SelectContent>
-																{cohorts.map((cohort) => (
-																	<SelectItem key={cohort.name} value={cohort.name}>
-																		{locale === "es" ? cohort.name : cohort.nameEn}
-																	</SelectItem>
-																))}
-															</SelectContent>
-														</Select>
-													</div> */}
+
 												</div>
 
 												<div className="space-y-2">

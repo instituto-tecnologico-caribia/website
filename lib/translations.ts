@@ -171,6 +171,8 @@ export const translations = {
 		},
 		// Admissions Page
 		admissions: {
+			motivationQuestion: "Cuales son tus motivaciones?",
+			programOfInterest: "Programa de Interés",
 			heroLabel: "Admisiones",
 			heroTitle: "Tu Futuro",
 			heroTitleHighlight: "Comienza Aquí",
@@ -231,7 +233,7 @@ export const translations = {
 			firstName: "Nombre",
 			lastName: "Apellido",
 			emailAddress: "Correo Electrónico",
-			phoneNumber: "Número de Teléfono",
+			phoneNumber: "Whatsapp",
 			programOfInterést: "Programa de Interés",
 			selectProgram: "Selecciona un programa",
 			preferredStartDate: "Fecha de Inicio Preferida",
@@ -583,6 +585,8 @@ export const translations = {
 		},
 		// Admissions Page
 		admissions: {
+			motivationQuestion: "What is your motivation?",
+			programOfInterest: "Program of Interest",
 			heroLabel: "Admissions",
 			heroTitle: "Your Future",
 			heroTitleHighlight: "Starts Here",
@@ -643,7 +647,7 @@ export const translations = {
 			firstName: "First Name",
 			lastName: "Last Name",
 			emailAddress: "Email Address",
-			phoneNumber: "Phone Number",
+			phoneNumber: "Whatsapp",
 			programOfInterést: "Program of Interést",
 			selectProgram: "Select a program",
 			preferredStartDate: "Preferred Start Date",
